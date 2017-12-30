@@ -16,7 +16,7 @@ const animateSnake=function() {
   paintHead(head);
   if(head.isSameCoordAs(food)) {
     let pointsScored = Score.updateScore();
-    updateScore(pointsScored);
+    displayScore(pointsScored);
     snake.grow();
     createFood(numberOfRows,numberOfCols);
     drawFood(food);
@@ -58,7 +58,7 @@ const createFood=function(numberOfRows,numberOfCols) {
   food=generateRandomPosition(numberOfCols,numberOfRows);
 }
 
-const updateScore = function(score) {
+const displayScore = function(score) {
   document.getElementById('score').innerText = `score: ${score}`;
 }
 
