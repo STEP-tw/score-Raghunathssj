@@ -2,8 +2,8 @@ let snake=undefined;
 let food=undefined;
 let numberOfRows=60;
 let numberOfCols=120;
-let Score = new Score();
-Score.forEveryOccurrence(10);
+let score = new Score();
+score.forEveryOccurrence(10);
 
 let animator=undefined;
 
@@ -15,7 +15,7 @@ const animateSnake=function() {
   unpaintSnake(oldTail);
   paintHead(head);
   if(head.isSameCoordAs(food)) {
-    let pointsScored = Score.updateScore();
+    let pointsScored = score.updateScore();
     displayScore(pointsScored);
     snake.grow();
     createFood(numberOfRows,numberOfCols);
