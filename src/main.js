@@ -11,6 +11,7 @@ const animateSnake=function() {
   unpaintSnake(details.oldTail);
   paintHead(details.head);
   if(game.hasSnakeEatenFood()) {
+    game.updateScore();
     game.grow();
     game.createFood();
     drawFood(game.getFood());
@@ -57,6 +58,7 @@ const createGame=function() {
   let topLeft=new Position(0,0,"east");
   let bottomRight=new Position(numberOfCols,numberOfRows,"east");
   game=new Game(topLeft,bottomRight);
+  game.ScoreForEveryOccurrence(10);
 }
 
 const startGame=function() {
