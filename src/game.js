@@ -3,7 +3,12 @@ const Game=function(topLeft,bottomRight) {
   this.bottomRight=bottomRight;
   this.snake={};
   this.food={};
+  this.Score = new Score();
 }
+
+Game.prototype.ScoreForEveryOccurrence = function (scoreToAdd) {
+  this.Score.forEveryOccurrence(scoreToAdd);
+};
 
 Game.prototype.addSnake=function(snake) {
   this.snake=snake;
@@ -37,6 +42,10 @@ Game.prototype.move=function() {
   details.head=this.snake.getHead();
   return details;
 }
+
+Game.prototype.updateScore = function () {
+   return this.Score.updateScore();
+};
 
 Game.prototype.hasSnakeEatenFood=function() {
   return this.snake.head.isSameCoordAs(this.food.getPosition());
