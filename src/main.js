@@ -5,13 +5,19 @@ let numberOfCols=120;
 
 let animator=undefined;
 
+const displayScore = function(score) {
+  document.getElementById('score').innerText = `score: ${score}`;
+  return;
+}
+
 const animateSnake=function() {
   let details=game.move();
   paintBody(details.oldHead);
   unpaintSnake(details.oldTail);
   paintHead(details.head);
   if(game.hasSnakeEatenFood()) {
-    game.updateScore();
+    let score = game.updateScore();
+    displayScore(score);
     game.grow();
     game.createFood();
     drawFood(game.getFood());
