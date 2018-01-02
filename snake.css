@@ -25,13 +25,12 @@
   border-radius: 50%;
 }
 
-<<<<<<< HEAD
 #score{
   text-align: center;
   font-size: 200%;
-=======
+}
+
 .super-food {
   background-color: green;
   border-radius: 50%;
->>>>>>> cd459a1673a0176fdb423d2b80049526f127cad7
 }
