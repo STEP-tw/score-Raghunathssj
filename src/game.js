@@ -3,6 +3,15 @@ const Game=function(topLeft,bottomRight) {
   this.bottomRight=bottomRight;
   this.snake={};
   this.food={};
+  this.score = new Score();
+}
+
+Game.prototype.setScoreForEveryOccurance = function (scoreToAdd) {
+  this.score.forEveryOccurrence(scoreToAdd);
+};
+
+Game.prototype.updateScore = function() {
+  return this.score.updateScore();
 }
 
 Game.prototype.addSnake=function(snake) {
@@ -23,7 +32,6 @@ Game.prototype.turnRight=function() {
 
 Game.prototype.grow=function() {
   let growthFactor=this.food.getGrowthFactor();
-  console.log(growthFactor);
   return this.snake.grow(growthFactor);
 }
 
@@ -44,7 +52,6 @@ Game.prototype.hasSnakeEatenFood=function() {
 }
 
 Game.prototype.createFood=function() {
-  console.log(this.bottomRight);
   let position=generateRandomPosition(this.bottomRight.x,this.bottomRight.y);
 
   let random=generateRandomNumberBetween(0,10);

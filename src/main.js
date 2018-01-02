@@ -2,8 +2,6 @@ let game=undefined;
 let food=undefined;
 let numberOfRows=60;
 let numberOfCols=120;
-let score = new Score();
-score.forEveryOccurrence(10);
 
 let animator=undefined;
 
@@ -13,8 +11,8 @@ const animateSnake=function() {
   unpaintSnake(details.oldTail);
   paintHead(details.head);
   if(game.hasSnakeEatenFood()) {
-    let pointsScored = score.updateScore();
-    displayScore(pointsScored);
+    let score = game.updateScore();
+    displayScore(score);
     game.grow();
     game.createFood();
     drawFood(game.getFood());
@@ -65,6 +63,7 @@ const createGame=function() {
   let topLeft=new Position(0,0,"east");
   let bottomRight=new Position(numberOfCols,numberOfRows,"east");
   game=new Game(topLeft,bottomRight);
+  game.setScoreForEveryOccurance(10);
 }
 
 const startGame=function() {
@@ -79,4 +78,3 @@ const startGame=function() {
 }
 
 window.onload=startGame;
-
